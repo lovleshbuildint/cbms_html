@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biller List</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Add custom styles here if needed */
+    .filter-box {
+      position: absolute;
+      top: 20px;
+      right: 120px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container mt-4">
+    <h2>Biller List</h2>
+    <div class="filter-box">
+      <div class="input-group">
+        <input type="text" class="form-control" id="searchInput" placeholder="Search...">
+        <div class="input-group-append">
+          <span class="input-group-text bg-transparent border-10"><i class="fas fa-search"></i></span>
+        </div>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" id="filterButton">
+            Filter <i class='bx bx-filter'></i>
+            <span>&#x25B2;</span>
+            <span>&#x25BC;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Client Name</th>
+          <th>No. of Locations</th>
+          <th>Paid</th>
+          <th>Unpaid</th>
+          <th>Due Date</th>
+        </tr>
+      </thead>
+      <tbody id="billerTableBody">
+        <tr>
+          <td>Client A</td>
+          <td>5</td>
+          <td>$1500</td>
+          <td>$500</td>
+          <td>2023-12-31</td>
+        </tr>
+        <tr>
+          <td>Client B</td>
+          <td>3</td>
+          <td>$1000</td>
+          <td>$200</td>
+          <td>2023-12-15</td>
+        </tr>
+        <!-- Add more rows for other billers -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Bootstrap JS and Popper.js -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+  <!-- Font Awesome Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
+  <script>
+    // Filter function
+    $(document).ready(function(){
+      $("#filterButton").on("click", function() {
+        var value = $("#searchInput").val().toLowerCase();
+        $("#billerTableBody tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+  </script>
+</body>
+</html>
