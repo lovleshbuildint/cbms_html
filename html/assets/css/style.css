@@ -1234,3 +1234,21 @@ h6 {
   font-size: 13px;
   color: #012970;
 }
+
+
+.vl {
+  border-right: 3px solid #7a7c81;
+  height: max-content;
+}
+
+
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}

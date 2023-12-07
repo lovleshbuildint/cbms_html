@@ -72,7 +72,7 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
 
-            <span id="full_name" class="d-none d-md-block ps-2"></span>
+            <span id="full_name" class="d-none d-md-block  ps-2"></span>
           </a><!-- End Profile Iamge Icon -->
           <!--
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -163,23 +163,109 @@
 
     <section class="section mt-4">
       <div class="card">
+        <h3 class="ms-3 me-3 mt-3">Clinent List</h3>
+
+        <div class="ms-3 me-3" style="background-color:  #d1d1d2;">
+          <div class="card-body pt-4">
+            <div class="row">
+              <div class="col-2 vl">
+                <div class="row">
+                  <div class="col-12">
+                    <p> Client ID</p>
+                  </div>
+                  <div class="col-12">
+                    <p id="client_id"></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2 vl">
+                <div class="row">
+                  <div class="col-12">
+                    <p> Client Name </p>
+                  </div>
+                  <div class="col-12">
+                    <p id="client_name"></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-2 vl">
+                <div class="row">
+                  <div class="col-12">
+                    <p> No .Of Loactaion </p>
+                  </div>
+                  <div class="col-12">
+                    <p id="no_of_location"></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-2 vl">
+                <div class="row">
+                  <div class="col-12">
+                    <p> Total Paid</p>
+                  </div>
+                  <div class="col-12">
+                    <p id="total_paid"></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-2 vl">
+                <div class="row">
+                  <div class="col-12">
+                    <p> Total Unpaid </p>
+                  </div>
+                  <div class="col-12">
+                    <p id="total_unpaid"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="row">
+
           <div class="col-12" id="mainContent">
             <div class="container mt-4">
               <div class="row">
-                <div class="col-6">
-                  <h2>Biller List</h2>
-                </div>
-                <div class="col-6">
-                  <div class="filter-box">
-                    <div class="input-group">
-                      <input type="text" class="form-control me-3 " id="searchInput" placeholder="Search...">
 
-                      <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" id="filterButton">
-                          Filter <i class='bx bx-filter'></i>
-                        </button>
+                <div class="col-6">
+
+                  <h2>Location List </h2>
+                  <div class="col-6">
+                    <div class="filter-box">
+                      <div class="input-group">
+                        <input type="text" class="form-control me-3 " id="searchInput" placeholder="Search...">
+
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary" id="filterButton">
+                            Filter <i class='bx bx-filter'></i>
+                          </button>
+                        </div>
                       </div>
+                    </div>
+                  </div>
+                </div><!--yugy-->
+                <div class="col-6 ">
+                  <div class="filter-box">
+                    <div class="input-group justify-content-end">
+
+                      <button class="btn btn-outline-secondary ms-3" style="background-color:#2b2bb4" id="uploadButton">
+                        <i class='bx bx-plus'></i>Add Location
+                      </button>
+                    </div>
+                    <div class="input-group  justify-content-end ">
+                      <button class="btn btn-outline-secondary ms-3" id="uploadButton">
+                        <i class='bx bx-upload'></i> Upload
+
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary ms-3" id="Download">
+                            Download Template <i class='bx bx-download'></i>
+                          </button>
+                        </div>
+
+
                     </div>
                   </div>
                 </div>
@@ -187,11 +273,12 @@
               <table class="table ">
                 <thead>
                   <tr>
-                    <th>Client Name</th>
-                    <th>No. of Locations</th>
-                    <th>Paid</th>
-                    <th>Unpaid</th>
-                    <th>Due Date</th>
+                    <th>Biller ID</th>
+                    <th>Biller Name</th>
+                    <th>Location</th>
+                    <th>Power Usage(Kwh)</th>
+                    <th>Amount</th>
+                    <th>status</th>
                   </tr>
                 </thead>
                 <tbody id="billerTableBody">
@@ -203,6 +290,7 @@
           </div>
         </div>
       </div>
+
 
     </section>
 
@@ -245,13 +333,18 @@
 
       // Fetch token from local storage
       const token = localStorage.getItem('token');
+      const urlParams = new URLSearchParams(window.location.search);
+      const CL_ID = urlParams.get('CL_ID');
+      payload = { CL_ID: CL_ID }
 
       // Fetch data from the API with Authorization header
-      fetch('https://api.cbms.buildint.co/clientlist/datas', {
+      fetch('https://api.cbms.buildint.co/location/datas', {
         method: 'POST',
         headers: {
-          'Authorization': `${token}`
-        }
+          'Authorization': `${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
       })
         .then(response => {
           if (response.ok) {
@@ -267,6 +360,14 @@
         .then(data => {
           // Reference to the table body
           document.getElementById('full_name').textContent = data.user.full_name
+          document.getElementById('client_id').textContent = data.clientdata[0].CL_ID
+          document.getElementById('client_name').textContent = data.clientdata[0].ClientName
+          document.getElementById('no_of_location').textContent = data.clientdata[0].NoLocation
+          document.getElementById('total_paid').textContent = data.clientdata[0].Paid
+          document.getElementById('total_unpaid').textContent = data.clientdata[0].Unpaid
+          // document.getElementById('full_name').textContent = data.user.full_name
+          // document.getElementById('full_name').textContent = data.user.full_name
+          // document.getElementById('full_name').textContent = data.user.full_name
           const tableBody = document.getElementById('billerTableBody');
           console.log(data)
 
@@ -279,28 +380,42 @@
 
             // Populate table cells with data
             row.innerHTML = `
-        <td class="client-name" data-client-id="${item.CL_ID}">${item.ClientName}</td>
-        <td>${item.NoLocation}</td>
-        <td>${item.Paid}</td>
-        <td>${item.Unpaid}</td>
-        <td>${formattedDueDate}</td>
-    `;
+            <td class="Biller_ID" data-Biller-id="${item.BillerId}">${item.BillerId}</td>
+        <td>${item.BillerName}</td>
+        <td>${item.location}</td>
+        <td>${item.PowerKwh}</td>
+        <td>${item.BillStatus}</td>
+        <td>${item.Amount}</td>
+       
+      `;
 
             // Append the row to the table body
             tableBody.appendChild(row);
           });
 
           // Add event listener to handle clicking on client name cell
-          document.querySelectorAll('.client-name').forEach(element => {
+          document.querySelectorAll('.Biller_ID').forEach(element => {
             element.addEventListener('click', function () {
-              const clientId = this.getAttribute('data-client-id');
+              const Biller_ID = this.getAttribute('data-Biller-id');
               // Redirect to client.html with CL_ID parameter
-              window.location.href = `client.html?CL_ID=${clientId}`;
+              window.location.href = `location.html?Biller_ID=${Biller_ID}`;
             });
           });
         })
         .catch(error => console.error('Error fetching data:', error));
+      document.getElementById('uploadButton').addEventListener('click', function () {
+        const fileInput = document.getElementById('fileInput');
+        const file = fileInput.files[0];
 
+        if (file) {
+          // Here, you can perform an action with the selected file, such as uploading it.
+          console.log('File uploaded:', file.name);
+          // Add your upload functionality here
+          // Example: You can use XMLHttpRequest, Fetch API, or other methods to upload the file
+        } else {
+          console.log('Please select a file.');
+        }
+      });
 
     })
     // Fetch data from the API

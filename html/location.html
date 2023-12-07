@@ -168,18 +168,18 @@
             <div class="container mt-4">
               <div class="row">
                 <div class="col-6">
-                  <h2>Biller List</h2>
+                  <h2>Location Details</h2>
                 </div>
                 <div class="col-6">
                   <div class="filter-box">
                     <div class="input-group">
                       <input type="text" class="form-control me-3 " id="searchInput" placeholder="Search...">
 
-                      <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" id="filterButton">
-                          Filter <i class='bx bx-filter'></i>
-                        </button>
-                      </div>
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary" id="filterButton">
+                            Filter <i class='bx bx-filter'></i>
+                          </button>
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -187,16 +187,18 @@
               <table class="table ">
                 <thead>
                   <tr>
-                    <th>Client Name</th>
-                    <th>No. of Locations</th>
-                    <th>Paid</th>
-                    <th>Unpaid</th>
-                    <th>Due Date</th>
+                    <th>Biller Id</th>
+                    <th>Biller Name</th>
+                    <th>Location</th>
+                    <th>Power usage 
+                    (kWh)
+                    </th>
+                    <th>Amount</th>
+                    <th>Status</th>
                   </tr>
                 </thead>
                 <tbody id="billerTableBody">
-
-                  <!-- Add more rows for other billers -->
+                   
                 </tbody>
               </table>
             </div>
@@ -279,7 +281,7 @@
 
             // Populate table cells with data
             row.innerHTML = `
-        <td class="client-name" data-client-id="${item.CL_ID}">${item.ClientName}</td>
+        <td class="Biller ID" data-Biller-id="${item.BillerID}">${item.BillerID}</td>
         <td>${item.NoLocation}</td>
         <td>${item.Paid}</td>
         <td>${item.Unpaid}</td>
@@ -291,11 +293,11 @@
           });
 
           // Add event listener to handle clicking on client name cell
-          document.querySelectorAll('.client-name').forEach(element => {
+          document.querySelectorAll('.BillerID').forEach(element => {
             element.addEventListener('click', function () {
-              const clientId = this.getAttribute('data-client-id');
+              const BillerName = this.getAttribute('data-Biller-id');
               // Redirect to client.html with CL_ID parameter
-              window.location.href = `client.html?CL_ID=${clientId}`;
+              window.location.href = `location.html?BillerID=${BillerName}`;
             });
           });
         })
@@ -304,9 +306,6 @@
 
     })
     // Fetch data from the API
-
-
-
   </script>
 </body>
 
