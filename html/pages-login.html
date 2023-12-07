@@ -136,7 +136,9 @@
         // Make a POST request to the API endpoint
         fetch('https://api.cbms.buildint.co/login', {
           method: 'POST',
-          
+          headers: {
+            'Content-Type': 'application/json'
+          },
           body: JSON.stringify(payload)
         })
         .then(response => {
@@ -153,6 +155,7 @@
 
           // Handle successful login
           console.log('Login successful!');
+          window.location.href = 'index.html';
           // You can redirect or perform other actions here
         })
         .catch(error => {
