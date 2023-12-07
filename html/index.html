@@ -542,20 +542,7 @@
                   </tr>
                 </thead>
                 <tbody id="billerTableBody">
-                  <tr>
-                    <td>Client A</td>
-                    <td>5</td>
-                    <td>$1500</td>
-                    <td>$500</td>
-                    <td>2023-12-31</td>
-                  </tr>
-                  <tr>
-                    <td>Client B</td>
-                    <td>3</td>
-                    <td>$1000</td>
-                    <td>$200</td>
-                    <td>2023-12-15</td>
-                  </tr>
+                  
                   <!-- Add more rows for other billers -->
                 </tbody>
               </table>
@@ -589,7 +576,41 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+        document.addEventListener('DOMContentLoaded', function() {
 
+          fetch('https://api.cbms.buildint.co/clientlist/datas', {
+            method: 'POST',
+          })
+  .then(response => response.json())
+  .then(data => {
+    // Reference to the table body
+    const tableBody = document.getElementById('billerTableBody');
+
+    // Loop through the fetched data and create table rows
+    data.forEach(item => {
+      const row = document.createElement('tr');
+
+      // Populate table cells with data
+      row.innerHTML = `
+        <td>${item.ClientName}</td>
+        <td>${item.NoLocation}</td>
+        <td>${item.Paid}</td>
+        <td>${item.Unpaid}</td>
+        <td>${item.DueDate}</td>
+      `;
+
+      // Append the row to the table body
+      tableBody.appendChild(row);
+    });
+  })
+  .catch(error => console.error('Error fetching data:', error));
+        })
+    // Fetch data from the API
+
+
+
+  </script>
 </body>
 
 </html>
