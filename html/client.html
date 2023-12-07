@@ -255,6 +255,36 @@
                         <i class='bx bx-plus'></i>Add Location
                       </button>
                     </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="locationModal" tabindex="-1" role="dialog"
+                      aria-labelledby="locationModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="locationModalLabel">Add Location</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <form id="locationForm">
+                              <!-- Your form fields go here -->
+                              <label for="billerId">Consumer No:</label>
+                              <input type="text" id="billerId" name="billerId" required>
+                              <br>
+                              <label for="billerName">Biller Name:</label>
+                              <input type="text" id="billerName" name="billerName" required>
+                              <br>
+                              <label for="addlocation">Location:</label>
+                              <input type="text" id="addlocation" name="addlocation" required>
+                              <!-- Add other form fields as needed -->
+                              <br>
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <div class="input-group  justify-content-end ">
                       <button class="btn btn-outline-secondary ms-3" id="uploadButton">
                         <i class='bx bx-upload'></i> Upload
@@ -315,6 +345,8 @@
   <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
@@ -365,9 +397,6 @@
           document.getElementById('no_of_location').textContent = data.clientdata[0].NoLocation
           document.getElementById('total_paid').textContent = data.clientdata[0].Paid
           document.getElementById('total_unpaid').textContent = data.clientdata[0].Unpaid
-          // document.getElementById('full_name').textContent = data.user.full_name
-          // document.getElementById('full_name').textContent = data.user.full_name
-          // document.getElementById('full_name').textContent = data.user.full_name
           const tableBody = document.getElementById('billerTableBody');
           console.log(data)
 
@@ -381,11 +410,11 @@
             // Populate table cells with data
             row.innerHTML = `
             <td class="Biller_ID" data-Biller-id="${item.BillerId}">${item.BillerId}</td>
-        <td>${item.BillerName}</td>
-        <td>${item.location}</td>
-        <td>${item.PowerKwh}</td>
-        <td>${item.BillStatus}</td>
-        <td>${item.Amount}</td>
+            <td>${item.BillerName !== null ? item.BillerName : '-'}</td>
+            <td>${item.Location !== null ? item.Location : '-'}</td>
+            <td>${item.Power_Kwh !== null ? item.Power_Kwh : '-'}</td>
+            <td>${item.Amount !== null ? item.Amount : '-'}</td>
+            <td>${item.BillStatus !== 0 ? 'Paid' : 'Unpaid'}</td>
        
       `;
 
@@ -403,25 +432,63 @@
           });
         })
         .catch(error => console.error('Error fetching data:', error));
-      document.getElementById('uploadButton').addEventListener('click', function () {
-        const fileInput = document.getElementById('fileInput');
-        const file = fileInput.files[0];
+      // document.getElementById('uploadButton').addEventListener('click', function () {
+      //   const fileInput = document.getElementById('fileInput');
+      //   const file = fileInput.files[0];
 
-        if (file) {
-          // Here, you can perform an action with the selected file, such as uploading it.
-          console.log('File uploaded:', file.name);
-          // Add your upload functionality here
-          // Example: You can use XMLHttpRequest, Fetch API, or other methods to upload the file
-        } else {
-          console.log('Please select a file.');
-        }
-      });
+      //   if (file) {
+      //     // Here, you can perform an action with the selected file, such as uploading it.
+      //     console.log('File uploaded:', file.name);
+      //     // Add your upload functionality here
+      //     // Example: You can use XMLHttpRequest, Fetch API, or other methods to upload the file
+      //   } else {
+      //     console.log('Please select a file.');
+      //   }
+      // });
 
     })
     // Fetch data from the API
+  </script>
 
+  <script>
+    // Show modal when the button is clicked
+    document.getElementById('uploadButton').addEventListener('click', function () {
+      $('#locationModal').modal('show');
+    });
 
+    // Handle form submission
+    document.getElementById('locationForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const urlParams = new URLSearchParams(window.location.search);
+      const CL_ID = urlParams.get('CL_ID');
+      // Collect form data
+      const formData = {
+        BillerId: document.getElementById('billerId').value,
+        BillerName: document.getElementById('billerName').value,
+        Location: document.getElementById('addlocation').value,
+        Power_Kwh: null, SanctionedLoad : null, DueDate: null, Amount: null, BillStatus:0, CL_ID: CL_ID
+        // Add other form fields as needed
+      };
 
+      // Make a POST request
+      fetch('https://api.cbms.buildint.co/mybills/datapost', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Handle the response
+          console.log(data);
+          // You can close the modal if needed
+          $('#locationModal').modal('hide');
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    });
   </script>
 </body>
 
