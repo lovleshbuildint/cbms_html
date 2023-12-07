@@ -136,9 +136,7 @@
         // Make a POST request to the API endpoint
         fetch('https://api.cbms.buildint.co/login', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
+          
           body: JSON.stringify(payload)
         })
         .then(response => {
