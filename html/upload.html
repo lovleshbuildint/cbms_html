@@ -212,14 +212,40 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+<!-- ... (existing HTML code) ... -->
+
+<style>
+    /* Define the loading spinner animation */
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .loading-spinner {
+        border: 6px solid rgba(0, 0, 0, 0.1);
+        border-top: 6px solid #000;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: spin 1s linear infinite;
+        margin-bottom: 10px;
+    }
+    .loading-text {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .progress-text {
+        font-size: 16px;}
+</style>
 <script>
     // Get reference to the file input element and drop zone
-
 
     // Function to handle selected files
     document.addEventListener('DOMContentLoaded', function () {
         const fileInput = document.getElementById('file-input');
         const dropZone = document.getElementById('drop-zone');
+        const consoleDataDiv = document.getElementById('console-data');
 
         // Listen for click event on the drop zone to trigger file selection
         dropZone.addEventListener('click', () => {
@@ -230,11 +256,14 @@
         fileInput.addEventListener('change', (event) => {
             handleFiles(event.target.files);
         });
+
         function handleFiles(files) {
             if (files.length > 0) {
                 const formData = new FormData();
                 formData.append('files', files[0]); // Adjust for handling multiple files if needed
-                const consoleDataDiv = document.getElementById('console-data');
+
+                // Show loading state
+                consoleDataDiv.innerHTML = '<div class="loading-spinner"></div><p class="loading-text">Loading...</p>';
 
                 fetch('https://api.ocr.buildint.co/upload', {
                     method: 'POST',
@@ -248,20 +277,19 @@
                     })
                     .then(data => {
                         console.log('File uploaded successfully:', data);
-                        consoleDataDiv.innerHTML = '<p>File uploaded successfully: ' + JSON.stringify(data) + '</p>'
+                        consoleDataDiv.innerHTML = '<p>File uploaded successfully: </p>';
                         // Handle API response data
                     })
                     .catch(error => {
                         console.error('There was a problem with the file upload:', error);
+                        consoleDataDiv.innerHTML = '<p>Error uploading file. Please try again.</p>';
                         // Handle errors or display error messages to the user
                     });
             }
         }
-
-    })
-
-
+    });
 </script>
+
 </body>
 
 </html>
