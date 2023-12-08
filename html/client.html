@@ -29,14 +29,6 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: NiceAdmin
-  * Updated: Nov 17 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -46,7 +38,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/img/buildint_logo-removebg-preview.png" alt="">
+        <img src="assets/img/buildint_logo-removebg-preview.jpg" alt="">
 
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -74,53 +66,6 @@
 
             <span id="full_name" class="d-none d-md-block  ps-2"></span>
           </a><!-- End Profile Iamge Icon -->
-          <!--
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
-              </a>
-            </li>
--->
       </ul><!-- End Profile Dropdown Items -->
       </li><!-- End Profile Nav -->
 
@@ -144,16 +89,22 @@
       <li class="nav-item">
         <!-- <a class="nav-link collapsed" href="https://cbms.buildint.co"> -->
         <a class="nav-link collapsed" href="index.html">
-          <i class="bi bi-grid"></i>
+          <i class="bi bi-receipt-cutoff"></i>
           <span>My Bills</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="upload.html">
+          <i class="bi bi-upload"></i>
+          <span>Upload Bills</span>
+        </a>
       </li>
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-login.html">
           <i class="bi bi-box-arrow-in-right"></i>
-          <span>Login</span>
+          <span>Logout</span>
         </a>
       </li><!-- End Login Page Nav -->
 
@@ -163,7 +114,7 @@
 
     <section class="section mt-4">
       <div class="card">
-        <h3 class="ms-3 me-3 mt-3">Clinent List</h3>
+        <h3 class="ms-3 me-3 mt-3">Client Details</h3>
 
         <div class="ms-3 me-3" style="background-color:  #d1d1d2;">
           <div class="card-body pt-4">
@@ -251,7 +202,7 @@
                   <div class="filter-box">
                     <div class="input-group justify-content-end">
 
-                      <button class="btn btn-outline-secondary ms-3" style="background-color:#2b2bb4" id="uploadButton">
+                      <button class="btn btn-outline-secondary ms-3" style="background-color:#2b2bb4; color: white;" id="uploadButton">
                         <i class='bx bx-plus'></i>Add Location
                       </button>
                     </div>
@@ -306,7 +257,6 @@
                     <th>Biller ID</th>
                     <th>Biller Name</th>
                     <th>Location</th>
-                    <th>Power Usage(Kwh)</th>
                     <th>Amount</th>
                     <th>status</th>
                   </tr>
@@ -409,10 +359,9 @@
 
             // Populate table cells with data
             row.innerHTML = `
-            <td class="Biller_ID" data-Biller-id="${item.BillerId}">${item.BillerId}</td>
+            <td style="cursor: pointer;" class="Biller_ID" data-Biller-id="${item.BillerId}">${item.BillerId}</td>
             <td>${item.BillerName !== null ? item.BillerName : '-'}</td>
             <td>${item.Location !== null ? item.Location : '-'}</td>
-            <td>${item.Power_Kwh !== null ? item.Power_Kwh : '-'}</td>
             <td>${item.Amount !== null ? item.Amount : '-'}</td>
             <td>${item.BillStatus !== 0 ? 'Paid' : 'Unpaid'}</td>
        
@@ -432,19 +381,6 @@
           });
         })
         .catch(error => console.error('Error fetching data:', error));
-      // document.getElementById('uploadButton').addEventListener('click', function () {
-      //   const fileInput = document.getElementById('fileInput');
-      //   const file = fileInput.files[0];
-
-      //   if (file) {
-      //     // Here, you can perform an action with the selected file, such as uploading it.
-      //     console.log('File uploaded:', file.name);
-      //     // Add your upload functionality here
-      //     // Example: You can use XMLHttpRequest, Fetch API, or other methods to upload the file
-      //   } else {
-      //     console.log('Please select a file.');
-      //   }
-      // });
 
     })
     // Fetch data from the API

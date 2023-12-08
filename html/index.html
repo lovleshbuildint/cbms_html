@@ -46,7 +46,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/img/buildint_logo-removebg-preview.png" alt="">
+        <img src="assets/img/buildint_logo-removebg-preview.jpg" alt="">
 
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -144,16 +144,22 @@
       <li class="nav-item">
         <!-- <a class="nav-link collapsed" href="https://cbms.buildint.co"> -->
         <a class="nav-link collapsed" href="index.html">
-          <i class="bi bi-grid"></i>
+          <i class="bi bi-receipt-cutoff"></i>
           <span>My Bills</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="upload.html">
+          <i class="bi bi-upload"></i>
+          <span>Upload Bills</span>
+        </a>
       </li>
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-login.html">
           <i class="bi bi-box-arrow-in-right"></i>
-          <span>Login</span>
+          <span>Logout</span>
         </a>
       </li><!-- End Login Page Nav -->
 
@@ -279,7 +285,7 @@
 
             // Populate table cells with data
             row.innerHTML = `
-        <td class="client-name" data-client-id="${item.CL_ID}">${item.ClientName}</td>
+        <td style="cursor: pointer;" class="client-name" data-client-id="${item.CL_ID}">${item.ClientName}</td>
         <td>${item.NoLocation}</td>
         <td>${item.Paid}</td>
         <td>${item.Unpaid}</td>
