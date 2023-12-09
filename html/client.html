@@ -256,6 +256,7 @@
                   <tr>
                     <th>Biller ID</th>
                     <th>Biller Name</th>
+                    <th>Service provider</th>
                     <th>Location</th>
                     <th>Amount</th>
                     <th>status</th>
@@ -361,6 +362,7 @@
             row.innerHTML = `
             <td style="cursor: pointer;" class="Biller_ID" data-Biller-id="${item.BillerId}">${item.BillerId}</td>
             <td>${item.BillerName !== null ? item.BillerName : '-'}</td>
+            <td> </td>
             <td>${item.Location !== null ? item.Location : '-'}</td>
             <td>${item.Amount !== null ? item.Amount : '-'}</td>
             <td>${item.BillStatus !== 0 ? 'Paid' : 'Unpaid'}</td>
