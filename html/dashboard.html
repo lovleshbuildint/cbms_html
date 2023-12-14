@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link href="assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/plugins/footable/css/footable.core.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/custom.css" rel="stylesheet">
+  <!-- =======================================================
+  * Template Name: NiceAdmin
+  * Updated: Nov 17 2023 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top align-items-center topbar">
+    <nav class="navbar top-navbar navbar-expand-md navbar-light">
+      <div class="d-flex align-items-center justify-content-between logo-navbar">
+        <a href="index.html" class="logo d-flex align-items-center">
+          <img src="assets/img/buildint_logo-removebg-preview.jpg" alt="">
+  
+        </a>
+        
+      </div><!-- End Logo -->
+      <div class="navbar-collapse">
+        <ul class="navbar-nav mr-auto mt-md-0">
+          <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="bi bi-list toggle-sidebar-btn"></i></a> </li>
+          <li class="nav-item">
+            <div class="search-bar">
+              <form class="search-form d-flex align-items-center" method="POST" action="#">
+                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+                <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+                
+              </form>
+            </div><!-- End Search Bar -->
+          </li>
+        </ul>
+        <ul class="navbar-nav my-lg-0 p-r-20">
+          <li class="nav-item dropdown">
+            <a class="nav-link text-muted text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="bi bi-gear"></i>
+              
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link text-muted text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="bi bi-bell"></i>
+              <div class="notifey"> <span class="heartbit"></span> <span class="point"></span> </div>
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+    
+            <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+              <p class="userDetail">
+                <span id="full_name" class="d-none d-md-block"></span>
+                <label class="position">Regional Manager</label>
+              </p>
+              
+              <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle dropdown-toggle">
+              <i class="bi bi-chevron-down ms-auto"></i>
+            </a><!-- End Profile Iamge Icon -->
+            <!--
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+              <li class="dropdown-header">
+                <h6>Kevin Anderson</h6>
+                <span>Web Designer</span>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+  
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                  <i class="bi bi-person"></i>
+                  <span>My Profile</span>
+                </a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+  
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                  <i class="bi bi-gear"></i>
+                  <span>Account Settings</span>
+                </a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+  
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+                  <i class="bi bi-question-circle"></i>
+                  <span>Need Help?</span>
+                </a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+  
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <i class="bi bi-box-arrow-right"></i>
+                  <span>Sign Out</span>
+                </a>
+              </li>
+  
+        </ul>--><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+        </ul>
+    
+        
+      </div>
+    </nav>
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link collapsed active" href="#">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <!-- <a class="nav-link collapsed" href="https://cbms.buildint.co"> -->
+        <a class="nav-link collapsed" href="index.html">
+          <i class="bi bi-geo-alt-fill"></i>
+          <span>My Location</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="upload.html">
+          <i class="bi-person-bounding-box"></i>
+          <span>User management</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-login.html">
+          <i class="bi bi-file-bar-graph"></i>
+          <span>Reports</span>
+        </a>
+      </li><!-- End Login Page Nav -->
+
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+    <div class="pagetitle">
+      <div class="col-md-6 col-8 align-self-center pull-left">
+        <h3 class="text-black">Dashboard</h3>
+      </div>
+      <div class="col-md-6 col-4 align-self-center pull-left">
+        <div class="pull-right btn-bg">
+          <a id="Digital" class="btn pull-right btn-outline-darkblue m-l-5 m-b-0 br-20" onclick="Digital()">Calendar</a>
+          <a id="NonDigital" class="btn pull-right btn-darkblue m-b-0 br-20" onclick="NonDigital()">Data</a>
+      </div>
+      </div>
+    </div>
+    <section class="section dashboard data">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-xxl-3 col-md-3">
+              <div class="card info-card sales-card bg-black">
+                <div class="card-body">
+                  <div class="col-md-12 pull-left">
+                    <div class="pull-left">
+                       <span class="text-white small pt-2 ps-1">Total Location</span>
+                      <h6 class="text-white">145</h6>
+                    </div>
+                    <div class="pull-right">
+                      <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                        <i class="bi bi-geo-alt"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-xxl-3 col-md-3">
+              <div class="card info-card sales-card">
+                <div class="card-body">
+                  <div class="col-md-12 pull-left">
+                    <div class="pull-left">
+                       <span class="text-black small pt-2 ps-1">Total Bills</span>
+                      <h6 class="text-black">1000</h6>
+                    </div>
+                    <div class="pull-right">
+                      <div class="card-icon rounded-radius d-flex align-items-center justify-content-center bg-orange">
+                        <i class="bi bi-files"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-xxl-3 col-md-3">
+              <div class="card info-card sales-card">
+                <div class="card-body">
+                  <div class="col-md-12 pull-left">
+                    <div class="pull-left">
+                       <span class="text-black small pt-2 ps-1">Paid Bills</span>
+                      <h6 class="text-black">900</h6>
+                    </div>
+                    <div class="pull-right">
+                      <div class="card-icon rounded-radius d-flex align-items-center justify-content-center bg-blue">
+                        <i class="bi bi-bar-chart-line"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-xxl-3 col-md-3">
+              <div class="card info-card sales-card">
+                <div class="card-body">
+                  <div class="col-md-12 pull-left">
+                    <div class="pull-left">
+                       <span class="text-black small pt-2 ps-1">Unpaid Bills</span>
+                      <h6 class="text-black">50</h6>
+                    </div>
+                    <div class="pull-right">
+                      <div class="card-icon rounded-radius d-flex align-items-center justify-content-center bg-red">
+                        <i class="bi bi-file-earmark-text"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="row">
+            <!-- Reports -->
+            <div class="col-12">
+              <div class="card">
+
+                <div class="filter p-r-20">
+                  <select class="custom-select">
+                    <option selected="">Yearly</option>
+                    <option value="1">Monthly</option>
+                    <option value="2">Day</option>
+                    
+                </select>
+                </div>
+
+                <div class="card-body">
+                  <h5 class="card-title text-black">Power Consumption</h5>
+
+                  <!-- Line Chart -->
+                  <div id="reportsChart"></div>
+
+                  <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                      new ApexCharts(document.querySelector("#reportsChart"), {
+                        series: [{
+                          name: 'This Year',
+                          data: [31, 40, 28, 51, 42, 82, 56,35,45,56,76,67],
+                        }, {
+                          name: 'Last Year',
+                          data: [11, 32, 45, 32, 34, 52, 41,53,65,70,45,57]
+                        }],
+                        chart: {
+                          height: 350,
+                          type: 'area',
+                          toolbar: {
+                            show: false
+                          },
+                        },
+                        markers: {
+                          size: 4
+                        },
+                        colors: ['#4154f1', '#2eca6a'],
+                        fill: {
+                          type: "gradient",
+                          gradient: {
+                            shadeIntensity: 1,
+                            opacityFrom: 0.3,
+                            opacityTo: 0.4,
+                            stops: [0, 90, 100]
+                          }
+                        },
+                        dataLabels: {
+                          enabled: false
+                        },
+                        stroke: {
+                          curve: 'smooth',
+                          width: 2
+                        },
+                        xaxis: {
+                          type: 'string',
+                          categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug","Sep","Oct","Nov","Dec"]
+                        },
+                        tooltip: {
+                          x: {
+                            format: 'dd/MM/yy HH:mm'
+                          },
+                        }
+                      }).render();
+                    });
+                  </script>
+                  <!-- End Line Chart -->
+
+                </div>
+
+              </div>
+            </div><!-- End Reports -->
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                
+    
+                <div class="card-body">
+                  <h5 class="card-title">Total Amount</h5>
+    
+                  <div id="trafficChart" style="min-height: 370px;" class="echart"></div>
+    
+                  <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                      echarts.init(document.querySelector("#trafficChart")).setOption({
+                        tooltip: {
+                          trigger: 'item'
+                        },
+                        legend: {
+                          top: '5%',
+                          left: 'center'
+                        },
+                        series: [{
+                          name: 'Access From',
+                          type: 'pie',
+                          radius: ['40%', '70%'],
+                          avoidLabelOverlap: false,
+                          label: {
+                            show: false,
+                            position: 'center'
+                          },
+                          emphasis: {
+                            label: {
+                              show: true,
+                              fontSize: '18',
+                              fontWeight: 'bold'
+                            }
+                          },
+                          labelLine: {
+                            show: false
+                          },
+                          data: [
+                            {
+                              value: 735,
+                              name: 'Over Due Amount'
+                            },
+                            {
+                              value: 580,
+                              name: 'Penalty'
+                            },
+                            {
+                              value: 484,
+                              name: 'Transection Amount'
+                            },
+                            {
+                              value: 300,
+                              name: 'Total Amount'
+                            }
+                          ]
+                        }]
+                      });
+                    });
+                  </script>
+    
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-12">
+              <div class="card top-selling overflow-auto">
+                <div  class="filter p-r-20">
+                  <a>View All</a>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title text-black">Top Clients</h5>
+                  <table class="table table-borderless">
+                    <thead>
+                      <tr>
+                        <th scope="col" colspan="2">My Clients</th>
+                        <th scope="col">Client ID</th>
+                        <th scope="col">No.of Consumers</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
+                        <td>A2B</td>
+                        <td>B1223</td>
+                        <td>1000</td>
+                        
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#"><img src="assets/img/product-2.jpg" alt=""></a></th>
+                        <td>TEA TIME</td>
+                        <td>B1224</td>
+                        <td>1500</td>
+                        
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#"><img src="assets/img/product-3.jpg" alt=""></a></th>
+                        <td>OYO</td>
+                        <td>B1225</td>
+                        <td>1500</td>
+                        
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#"><img src="assets/img/product-4.jpg" alt=""></a></th>
+                        <td>Trends</td>
+                        <td>B1226</td>
+                        <td>1500</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#"><img src="assets/img/product-5.jpg" alt=""></a></th>
+                        <td>GRT Jewellers</td>
+                        <td>B1226</td>
+                        <td>1500</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div  class="filter p-r-20">
+                  <select class="custom-select">
+                    <option selected="">Yearly</option>
+                    <option value="1">Monthly</option>
+                    <option value="2">Day</option>
+                    
+                </select>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title text-black">Top Power Consumption Location</h5>
+                  <div id="verticalBarChart" style="min-height: 400px;" class="echart"></div>
+
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  echarts.init(document.querySelector("#verticalBarChart")).setOption({
+                    // title: {
+                    //   text: 'World Population'
+                    // },
+                    tooltip: {
+                      trigger: 'axis',
+                      axisPointer: {
+                        type: 'shadow'
+                      }
+                    },
+                    legend: {},
+                    grid: {
+                      left: '3%',
+                      right: '4%',
+                      bottom: '3%',
+                      containLabel: true
+                    },
+                    xAxis: {
+                      type: 'value',
+                      boundaryGap: [0, 0.01]
+                    },
+                    yAxis: {
+                      type: 'category',
+                      data: ['Vellore-1', 'Chennai-1', 'Vellore-2', 'Chennai-2', 'Vellore-3', 'Chennai-3']
+                    },
+                    series: [{
+                       // name: '2011',
+                        type: 'bar',
+                        data: [18203, 23489, 29034, 104970, 131744, 630230]
+                      }
+                      // {
+                      //   name: '2012',
+                      //   type: 'bar',
+                      //   data: [19325, 23438, 31000, 121594, 134141, 681807]
+                      // }
+                    ]
+                  });
+                });
+              </script>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+    <section class="section dashboard calendar" style="display: none;">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-xxl-3 col-md-3">
+              <div class="card info-card sales-card bg-black">
+                <div class="card-body">
+                  <div class="col-md-12 pull-left">
+                    <div class="pull-left">
+                       <span class="text-white small pt-2 ps-1">No.of Payment</span>
+                      <h6 class="text-white">200</h6>
+                    </div>
+                    <div class="pull-right">
+                      <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                        <i class="bi bi-bar-chart-line"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-xxl-3 col-md-3">
+              <div class="card info-card sales-card">
+                <div class="card-body">
+                  <div class="col-md-12 pull-left">
+                    <div class=" pull-left">
+                       <span class="text-black small pt-2 ps-1">Payment Due</span>
+                      <h6 class="text-black">1000</h6>
+                    </div>
+                    <div class="pull-right">
+                      <div class="card-icon rounded-radius d-flex align-items-center justify-content-center bg-orange">
+                        <i class="bi bi-files"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-xxl-3 col-md-3">
+              <div class="card info-card sales-card">
+                <div class="card-body">
+                  <div class="col-md-12 pull-left">
+                    <div class=" pull-left">
+                       <span class="text-black small pt-2 ps-1">Submitted Bills</span>
+                      <h6 class="text-black">900</h6>
+                    </div>
+                    <div class="pull-right">
+                      <div class="card-icon rounded-radius d-flex align-items-center justify-content-center bg-blue">
+                        <i class="bi bi-check2-circle"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-xxl-3 col-md-3">
+              <div class="card info-card sales-card">
+                <div class="card-body">
+                  <div class="col-md-12 pull-left">
+                    <div class="pull-left">
+                       <span class="text-black small pt-2 ps-1">Penalty Amount</span>
+                      <h6 class="text-black">5000</h6>
+                    </div>
+                    <div class="pull-right">
+                      <div class="card-icon rounded-radius d-flex align-items-center justify-content-center bg-red">
+                        <i class="bi bi-cash-stack"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-12">
+              <div class="card top-selling overflow-auto">
+                <div  class="filter p-r-20">
+                  <select class="custom-select">
+                    <option selected="">24 Hours</option>
+                    <option value="1">12 Hours</option>
+                    
+                </select>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title text-black">Calendar</h5>
+                  
+                      <div id="datepicker-inline"></div>
+                 
+                      
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div  class="filter p-r-20">
+                  <select class="custom-select">
+                    <option selected="">Monthly</option>
+                    <option value="1">Yearly</option>
+                    <option value="2">Day</option>
+                    
+                </select>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title text-black">Reports</h5>
+                  <div id="lineChart" style="min-height: 400px;" class="echart"></div>
+
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  echarts.init(document.querySelector("#lineChart")).setOption({
+                    xAxis: {
+                      type: 'category',
+                      data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']
+                    },
+                    yAxis: {
+                      type: 'value'
+                    },
+                    series: [{
+                      data: [150, 230, 224, 218, 135, 147, 260],
+                      type: 'line',
+                      smooth: true
+                    }]
+                  });
+                });
+              </script>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-12">
+              <div class="">
+                <table class="table table-borderless">
+                  <thead>
+                    <tr>
+                      <th scope="col"><input type="checkbox" class="m-r-5">Location ID</th>
+                      <th scope="col">Location Type</th>
+                      <th scope="col">Consumer Number</th>
+                      <th scope="col">Consumer Name</th>
+                      <th scope="col">Due Date</th>
+                      <th scope="col">Financier Name</th>
+                      <th scope="col">Status</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><input type="checkbox" class="m-r-5">L09488</td>
+                      <td>Branch</td>
+                      <td>025609488</td>
+                      <td>Karthik</td>
+                      <td>12/12/2023</td>
+                      <td>Naveen</td>
+                      <td class="text-orange text-decoration">Upload Bill</td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" class="m-r-5">L09488</td>
+                      <td>Branch</td>
+                      <td>025609488</td>
+                      <td>Karthik</td>
+                      <td>12/12/2023</td>
+                      <td>Naveen</td>
+                      <td class="text-orange text-decoration">Upload Bill</td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" class="m-r-5">L09488</td>
+                      <td>Branch</td>
+                      <td>025609488</td>
+                      <td>Karthik</td>
+                      <td>12/12/2023</td>
+                      <td>Naveen</td>
+                      <td class="text-orange text-decoration">Upload Bill</td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" class="m-r-5">L09488</td>
+                      <td>Branch</td>
+                      <td>025609488</td>
+                      <td>Karthik</td>
+                      <td>12/12/2023</td>
+                      <td>Naveen</td>
+                      <td class="text-orange text-decoration">Upload Bill</td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" class="m-r-5">L09488</td>
+                      <td>Branch</td>
+                      <td>025609488</td>
+                      <td>Karthik</td>
+                      <td>12/12/2023</td>
+                      <td>Naveen</td>
+                      <td class="text-orange text-decoration">Upload Bill</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          
+            <div class="card">
+              <div class="card-body">
+                  
+                  <table id="demo-foo-accordion" class="table m-b-0 toggle-arrow-tiny">
+                      <thead>
+                          <tr>
+                              <th data-toggle="true"> First Name </th>
+                              <th> Last Name </th>
+                              <th data-hide="phone"> Job Title </th>
+                              <th data-hide="all"> DOB </th>
+                              <th data-hide="all"> Status </th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>Isidra</td>
+                              <td>Boudreaux</td>
+                              <td>Traffic Court Referee</td>
+                              <td>22 Jun 1972</td>
+                              <td><span class="label label-table label-success">Active</span></td>
+                          </tr>
+                          <tr>
+                              <td>Shona</td>
+                              <td>Woldt</td>
+                              <td>Airline Transport Pilot</td>
+                              <td>3 Oct 1981</td>
+                              <td><span class="label label-table label-inverse">Disabled</span></td>
+                          </tr>
+                          <tr>
+                              <td>Granville</td>
+                              <td>Leonardo</td>
+                              <td>Business Services Sales Representative</td>
+                              <td>19 Apr 1969</td>
+                              <td><span class="label label-table label-danger">Suspended</span></td>
+                          </tr>
+                          <tr>
+                              <td>Easer</td>
+                              <td>Dragoo</td>
+                              <td>Drywall Stripper</td>
+                              <td>13 Dec 1977</td>
+                              <td><span class="label label-table label-success">Active</span></td>
+                          </tr>
+                          <tr>
+                              <td>Maple</td>
+                              <td>Halladay</td>
+                              <td>Aviation Tactical Readiness Officer</td>
+                              <td>30 Dec 1991</td>
+                              <td><span class="label label-table label-danger">Suspended</span></td>
+                          </tr>
+                          <tr>
+                              <td>Maxine</td>
+                              <td><a href="#">Woldt</a></td>
+                              <td><a href="#">Business Services Sales Representative</a></td>
+                              <td>17 Oct 1987</td>
+                              <td><span class="label label-table label-inverse">Disabled</span></td>
+                          </tr>
+                          <tr>
+                              <td>Lorraine</td>
+                              <td>Mcgaughy</td>
+                              <td>Hemodialysis Technician</td>
+                              <td>11 Nov 1983</td>
+                              <td><span class="label label-table label-inverse">Disabled</span></td>
+                          </tr>
+                          <tr>
+                              <td>Lizzee</td>
+                              <td><a href="#">Goodlow</a></td>
+                              <td>Technical Services Librarian</td>
+                              <td>1 Nov 1961</td>
+                              <td><span class="label label-table label-danger">Suspended</span></td>
+                          </tr>
+                          <tr>
+                              <td>Judi</td>
+                              <td>Badgett</td>
+                              <td>Electrical Lineworker</td>
+                              <td>23 Jun 1981</td>
+                              <td><span class="label label-table label-success">Active</span></td>
+                          </tr>
+                          <tr>
+                              <td>Lauri</td>
+                              <td>Hyland</td>
+                              <td>Blackjack Supervisor</td>
+                              <td>15 Nov 1985</td>
+                              <td><span class="label label-table label-danger">Suspended</span></td>
+                          </tr>
+                          <tr>
+                              <td>Isidra</td>
+                              <td>Boudreaux</td>
+                              <td>Traffic Court Referee</td>
+                              <td>22 Jun 1972</td>
+                              <td><span class="label label-table label-success">Active</span></td>
+                          </tr>
+                          <tr>
+                              <td>Shona</td>
+                              <td>Woldt</td>
+                              <td>Airline Transport Pilot</td>
+                              <td>3 Oct 1981</td>
+                              <td><span class="label label-table label-inverse">Disabled</span></td>
+                          </tr>
+                          <tr>
+                              <td>Granville</td>
+                              <td>Leonardo</td>
+                              <td>Business Services Sales Representative</td>
+                              <td>19 Apr 1969</td>
+                              <td><span class="label label-table label-danger">Suspended</span></td>
+                          </tr>
+                          <tr>
+                              <td>Easer</td>
+                              <td>Dragoo</td>
+                              <td>Drywall Stripper</td>
+                              <td>13 Dec 1977</td>
+                              <td><span class="label label-table label-success">Active</span></td>
+                          </tr>
+                          <tr>
+                              <td>Maple</td>
+                              <td>Halladay</td>
+                              <td>Aviation Tactical Readiness Officer</td>
+                              <td>30 Dec 1991</td>
+                              <td><span class="label label-table label-danger">Suspended</span></td>
+                          </tr>
+                          <tr>
+                              <td>Maxine</td>
+                              <td><a href="#">Woldt</a></td>
+                              <td><a href="#">Business Services Sales Representative</a></td>
+                              <td>17 Oct 1987</td>
+                              <td><span class="label label-table label-inverse">Disabled</span></td>
+                          </tr>
+                          <tr>
+                              <td>Lorraine</td>
+                              <td>Mcgaughy</td>
+                              <td>Hemodialysis Technician</td>
+                              <td>11 Nov 1983</td>
+                              <td><span class="label label-table label-inverse">Disabled</span></td>
+                          </tr>
+                          <tr>
+                              <td>Lizzee</td>
+                              <td><a href="#">Goodlow</a></td>
+                              <td>Technical Services Librarian</td>
+                              <td>1 Nov 1961</td>
+                              <td><span class="label label-table label-danger">Suspended</span></td>
+                          </tr>
+                          <tr>
+                              <td>Judi</td>
+                              <td>Badgett</td>
+                              <td>Electrical Lineworker</td>
+                              <td>23 Jun 1981</td>
+                              <td><span class="label label-table label-success">Active</span></td>
+                          </tr>
+                          <tr>
+                              <td>Lauri</td>
+                              <td>Hyland</td>
+                              <td>Blackjack Supervisor</td>
+                              <td>15 Nov 1985</td>
+                              <td><span class="label label-table label-danger">Suspended</span></td>
+                          </tr>
+                          <tr>
+                              <td>Isidra</td>
+                              <td>Boudreaux</td>
+                              <td>Traffic Court Referee</td>
+                              <td>22 Jun 1972</td>
+                              <td><span class="label label-table label-success">Active</span></td>
+                          </tr>
+                          <tr>
+                              <td>Shona</td>
+                              <td>Woldt</td>
+                              <td>Airline Transport Pilot</td>
+                              <td>3 Oct 1981</td>
+                              <td><span class="label label-table label-inverse">Disabled</span></td>
+                          </tr>
+                          <tr>
+                              <td>Granville</td>
+                              <td>Leonardo</td>
+                              <td>Business Services Sales Representative</td>
+                              <td>19 Apr 1969</td>
+                              <td><span class="label label-table label-danger">Suspended</span></td>
+                          </tr>
+                          <tr>
+                              <td>Easer</td>
+                              <td>Dragoo</td>
+                              <td>Drywall Stripper</td>
+                              <td>13 Dec 1977</td>
+                              <td><span class="label label-table label-success">Active</span></td>
+                          </tr>
+                          <tr>
+                              <td>Maple</td>
+                              <td>Halladay</td>
+                              <td>Aviation Tactical Readiness Officer</td>
+                              <td>30 Dec 1991</td>
+                              <td><span class="label label-table label-danger">Suspended</span></td>
+                          </tr>
+                          <tr>
+                              <td>Maxine</td>
+                              <td><a href="#">Woldt</a></td>
+                              <td><a href="#">Business Services Sales Representative</a></td>
+                              <td>17 Oct 1987</td>
+                              <td><span class="label label-table label-inverse">Disabled</span></td>
+                          </tr>
+                          <tr>
+                              <td>Lorraine</td>
+                              <td>Mcgaughy</td>
+                              <td>Hemodialysis Technician</td>
+                              <td>11 Nov 1983</td>
+                              <td><span class="label label-table label-inverse">Disabled</span></td>
+                          </tr>
+                          <tr>
+                              <td>Lizzee</td>
+                              <td><a href="#">Goodlow</a></td>
+                              <td>Technical Services Librarian</td>
+                              <td>1 Nov 1961</td>
+                              <td><span class="label label-table label-danger">Suspended</span></td>
+                          </tr>
+                          <tr>
+                              <td>Judi</td>
+                              <td>Badgett</td>
+                              <td>Electrical Lineworker</td>
+                              <td>23 Jun 1981</td>
+                              <td><span class="label label-table label-success">Active</span></td>
+                          </tr>
+                          <tr>
+                              <td>Lauri</td>
+                              <td>Hyland</td>
+                              <td>Blackjack Supervisor</td>
+                              <td>15 Nov 1985</td>
+                              <td><span class="label label-table label-danger">Suspended</span></td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+          
+
+        </div>
+      </div>
+    </section>
+    
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>BuildINT</span></strong>. All Rights Reserved
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+      <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> -->
+      <script src="assets/plugins/jquery/jquery.min.js"></script>
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="assets/vendor/echarts/echarts.min.js"></script>
+  <script src="assets/vendor/quill/quill.min.js"></script>
+  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+  <script src="assets/plugins/footable/js/footable.all.min.js"></script>
+
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/footable-init.js"></script>
+  <script>
+    $(window).on('load', function() {
+      $('#demo-foo-accordion').footable().on('footable_row_expanded', function(e) {
+        $('#demo-foo-accordion tbody tr.footable-detail-show').not(e.row).each(function() {
+          $('#demo-foo-accordion').data('footable').toggleDetail(this);
+        });
+      }); 
+    });
+    
+   jQuery('#datepicker-inline').datepicker({
+        todayHighlight: true
+    });
+      function NonDigital() {
+      //alert("data");
+        $("#NonDigital").removeClass('btn-outline-darkblue');
+        $("#NonDigital").addClass('btn-darkblue');
+        $("#Digital").addClass('btn-outline-darkblue');
+        $("#Digital").removeClass('btn-darkblue');
+        $(".data").show();
+        $(".calendar").hide();
+        return false;
+    }
+    function Digital() {
+     // alert("calendar");
+        $("#Digital").removeClass('btn-outline-darkblue');
+        $("#Digital").addClass('btn-darkblue');
+        $("#NonDigital").addClass('btn-outline-darkblue');
+        $("#NonDigital").removeClass('btn-darkblue');
+        $(".data").hide();
+        $(".calendar").show();
+        return false;
+    }
+   
+
+   
+  </script>
+  
+
+</body>
+
+</html>
