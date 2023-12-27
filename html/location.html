@@ -48,42 +48,45 @@
       <div class="d-flex align-items-center justify-content-between logo-navbar">
         <a href="index.html" class="logo d-flex align-items-center">
           <img src="assets/img/buildint_logo-removebg-preview.jpg" alt="">
-  
+
         </a>
-        
+
       </div><!-- End Logo -->
       <div class="navbar-collapse">
         <ul class="navbar-nav mr-auto mt-md-0">
-          <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="bi bi-list toggle-sidebar-btn"></i></a> </li>
+          <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark"
+              href="javascript:void(0)"><i class="bi bi-list toggle-sidebar-btn"></i></a> </li>
           <li class="nav-item">
             <div class="search-bar">
               <form class="search-form d-flex align-items-center" method="POST" action="#">
                 <button type="submit" title="Search"><i class="bi bi-search"></i></button>
                 <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-                
+
               </form>
             </div><!-- End Search Bar -->
           </li>
         </ul>
         <ul class="navbar-nav my-lg-0 p-r-20">
           <li class="nav-item dropdown">
-            <a class="nav-link text-muted text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="bi bi-gear"></i>
-              
+            <a class="nav-link text-muted text-muted waves-effect waves-dark" href="#" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false"> <i class="bi bi-gear"></i>
+
             </a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link text-muted text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="bi bi-bell"></i>
+            <a class="nav-link text-muted text-muted waves-effect waves-dark" href="#" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false"> <i class="bi bi-bell"></i>
               <div class="notifey"> <span class="heartbit"></span> <span class="point"></span> </div>
             </a>
           </li>
           <li class="nav-item dropdown">
-    
+
             <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
               <p class="userDetail">
                 <span id="full_name" class="d-none d-md-block"></span>
                 <label class="position">Regional Manager</label>
               </p>
-              
+
               <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle dropdown-toggle">
               <i class="bi bi-chevron-down ms-auto"></i>
             </a><!-- End Profile Iamge Icon -->
@@ -135,10 +138,10 @@
               </li>
   
         </ul>--><!-- End Profile Dropdown Items -->
-        </li><!-- End Profile Nav -->
+          </li><!-- End Profile Nav -->
         </ul>
-    
-        
+
+
       </div>
     </nav>
   </header><!-- End Header -->
@@ -164,7 +167,7 @@
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="upload.html">
+        <a class="nav-link collapsed" href="#">
           <i class="bi-person-bounding-box"></i>
           <span>User management</span>
         </a>
@@ -173,7 +176,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-login.html">
           <i class="bi bi-file-bar-graph"></i>
-          <span>Reports</span>
+          <span>Log Out</span>
         </a>
       </li><!-- End Login Page Nav -->
 
@@ -191,23 +194,17 @@
                   <h2>Location Details</h2>
                 </div>
                 <div class="col-6">
-                  <div class="filter-box">
-                    <div class="input-group">
-                      <input type="text" class="form-control me-3 " id="searchInput" placeholder="Search...">
-
-                        <div class="input-group-append">
-                          <button class="btn btn-outline-secondary" id="filterButton">
-                            Filter <i class='bx bx-filter'></i>
-                          </button>
-                        </div>
-                    </div>
-                  </div>
+                  <button id="addBillsButton" class="btn btn-primary" style="display: inline-flex; height: 39px; width: 116px; padding: 11px 10px;
+                    justify-content: center; align-items: center; gap: 10px; flex-shrink: 0; border-radius: 4px;">
+                    + Add Bills
+                  </button>
+                </div>                  
                 </div>
               </div>
               <table class="table ">
                 <thead>
                   <tr>
-                    <th>Biller Id</th>
+                    <th>Consumer No.</th>
                     <th>Sanction Load</th>
                     <th>Power usage (kWh)</th>
                     <th>Amount</th>
@@ -215,7 +212,7 @@
                   </tr>
                 </thead>
                 <tbody id="billerTableBody">
-                   
+
                 </tbody>
               </table>
             </div>
@@ -251,8 +248,7 @@
   <script src="assets/js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-
-      // Function to format the date to yyyy-mm-dd
+  
       // Function to format the date to yyyy-mm-dd
       function formatDate(dateString) {
         const date = new Date(dateString);
@@ -261,12 +257,13 @@
         const day = String(date.getDate()).padStart(2, '0');
         return `${year}-${month}-${day}`;
       }
-
+  
       // Fetch token from local storage
       const token = localStorage.getItem('token');
       const urlParams = new URLSearchParams(window.location.search);
       const Biller_ID = urlParams.get('Biller_ID');
-      payload = { unique_identifier: Biller_ID }
+      payload = { unique_identifier: Biller_ID };
+  
       // Fetch data from the API with Authorization header
       fetch('https://api.cbms.buildint.co/per/location/datas', {
         method: 'POST',
@@ -276,58 +273,63 @@
         },
         body: JSON.stringify(payload)
       })
-        .then(response => {
-          if (response.ok) {
-            return response.json();
-          } else if (response.status === 401) {
-            // Redirect to login page for unauthorized access
-            window.location.href = 'pages-login.html';
-            throw new Error('Unauthorized access');
-          } else {
-            throw new Error('Error occurred');
-          }
-        })
-        .then(data => {
-          // Reference to the table body
-          document.getElementById('full_name').textContent = data.user.full_name
-          const tableBody = document.getElementById('billerTableBody');
-          console.log(data)
-
-          // Loop through the fetched data and create table rows
-          data.data.forEach(item => {
-            const row = document.createElement('tr');
-
-            // Format the DueDate to yyyy-mm-dd
-            const formattedDueDate = formatDate(item.Bill_date);
-
-            // Populate table cells with data
-            row.innerHTML = `
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else if (response.status === 401) {
+          // Redirect to the login page for unauthorized access
+          window.location.href = 'pages-login.html';
+          throw new Error('Unauthorized access');
+        } else {
+          throw new Error('Error occurred');
+        }
+      })
+      .then(data => {
+        // Reference to the table body
+        document.getElementById('full_name').textContent = data.user.full_name;
+        const tableBody = document.getElementById('billerTableBody');
+        console.log(data);
+  
+        // Loop through the fetched data and create table rows
+        data.data.forEach(item => {
+          const row = document.createElement('tr');
+  
+          // Format the DueDate to yyyy-mm-dd
+          const formattedDueDate = formatDate(item.Bill_date);
+  
+          // Populate table cells with data
+          row.innerHTML = `
             <td>${item.unique_identifier}</td>
             <td>${item.sanctioned_load !== null ? item.sanctioned_load : '-'}</td>
             <td>${item.Unit_identifier !== null ? item.Unit_identifier : '-'}</td>
             <td>${item.Current_Amount !== null ? item.Current_Amount : '-'}</td>
             <td>${item.Bill_date !== null ? item.Bill_date : '-'}</td>
-    `;
-
-            // Append the row to the table body
-            tableBody.appendChild(row);
+          `;
+  
+          // Append the row to the table body
+          tableBody.appendChild(row);
+        });
+  
+        // Add event listener to handle clicking on client name cell
+        document.querySelectorAll('.BillerID').forEach(element => {
+          element.addEventListener('click', function () {
+            const BillerName = this.getAttribute('data-Biller-id');
+            // Redirect to location.html with BillerID parameter
+            window.location.href = `location.html?BillerID=${BillerName}`;
           });
-
-          // Add event listener to handle clicking on client name cell
-          document.querySelectorAll('.BillerID').forEach(element => {
-            element.addEventListener('click', function () {
-              const BillerName = this.getAttribute('data-Biller-id');
-              // Redirect to client.html with CL_ID parameter
-              window.location.href = `location.html?BillerID=${BillerName}`;
-            });
-          });
-        })
-        .catch(error => console.error('Error fetching data:', error));
-
-
-    })
-    // Fetch data from the API
+        });
+  
+        // Add event listener for the addBillsButton
+        document.getElementById('addBillsButton').addEventListener('click', function() {
+          // Redirect to upload.html with BillerID parameter
+          window.location.href = `upload.html?BillerID=${Biller_ID}`;
+        });
+  
+      })
+      .catch(error => console.error('Error fetching data:', error));
+    });
   </script>
+  
 </body>
 
 </html>

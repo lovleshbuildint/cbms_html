@@ -160,14 +160,14 @@
 
       <li class="nav-item">
         <!-- <a class="nav-link collapsed" href="https://cbms.buildint.co"> -->
-        <a class="nav-link collapsed" href="index.html">
+        <a class="nav-link collapsed active" href="index.html">
           <i class="bi bi-geo-alt-fill"></i>
           <span>My Location</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed active" href="upload.html">
+        <a class="nav-link collapsed" href="#">
           <i class="bi-person-bounding-box"></i>
           <span>User management</span>
         </a>
@@ -176,7 +176,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-login.html">
           <i class="bi bi-file-bar-graph"></i>
-          <span>Reports</span>
+          <span>Log Out</span>
         </a>
       </li><!-- End Login Page Nav -->
 
@@ -226,8 +226,8 @@
         </style>
 
         <div class="row">
-          <div class="col-12">
-            <div class="drop-zones-container d-flex justify-content-center">
+          <div class="col-6">
+            <div class="ms-3 drop-zones-container d-flex justify-content-center" id="drop-zones-container">
               <label style="cursor: pointer;" for="file-input" class="drop-zone" id="drop-zone">
                 <!-- <i class='bx bx-receipt' style="font-size: 200px;"></i> -->
                 <img style="height: auto; width: 250px;" src="assets/img/Upload.png">
@@ -236,7 +236,7 @@
               </label>
             </div>
           </div>
-          <div class="col-12">
+          <div class="col-6">
             <div class="row ms-3 me-3 mb-5" id="console-data">
 
             </div>
@@ -313,6 +313,7 @@
     const fileInput = document.getElementById('file-input');
     const dropZone = document.getElementById('drop-zone');
     const consoleDataDiv = document.getElementById('console-data');
+    const dropzonescontainer = document.getElementById('drop-zones-container')
 
     // Listen for click event on the drop zone to trigger file selection
     dropZone.addEventListener('click', (event) => {
@@ -334,6 +335,22 @@
       if (files.length > 0) {
         const formData = new FormData();
         formData.append('files', files[0]);
+
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+          const embedElement = document.createElement('embed');
+          embedElement.setAttribute('src', e.target.result);
+          embedElement.setAttribute('type', 'application/pdf');
+          embedElement.setAttribute('width', '100%');
+          embedElement.setAttribute('height', '500px');
+
+          // Clear drop-zones-container and append the embed element
+          dropzonescontainer.innerHTML = '';
+          dropzonescontainer.appendChild(embedElement);
+        };
+
+        reader.readAsDataURL(files[0]);
 
         // Show loading state
         consoleDataDiv.innerHTML = '<div class="d-flex justify-content-center"> <div class="loading-spinner"></div><p class="loading-text">Analysing PDF file...</p></div>';
@@ -366,7 +383,7 @@
       for (const key in data) {
         if (data.hasOwnProperty(key)) {
           let value = data[key];
-          value = value == "" ? "-" : value; 
+          value = value == "" ? "-" : value;
           // Create heading and display value below it
           htmlContent += `<div class="col-4 mb-4">
           <h2 style="color: #000; font-family: Inter; font-size: 14px; font-style: normal; font-weight: 500;
