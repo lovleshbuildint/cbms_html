@@ -347,7 +347,7 @@
       const token = localStorage.getItem('token');
       const urlParams = new URLSearchParams(window.location.search);
       const CL_ID = urlParams.get('CL_ID');
-      payload = { CL_ID: CL_ID }
+      payload = { CL_ID: 1 }
 
       // Fetch data from the API with Authorization header
       fetch('https://api.cbms.buildint.co/location/datas', {
