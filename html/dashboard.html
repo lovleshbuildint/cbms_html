@@ -164,12 +164,12 @@
         </a>
       </li><!-- End Dashboard Nav -->
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#">
           <i class="bi-person-bounding-box"></i>
           <span>User management</span>
         </a>
-      </li>
+      </li> -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-login.html">
@@ -187,7 +187,7 @@
       </div>
       <div class="col-md-6 col-4 align-self-center pull-left">
         <div class="pull-right btn-bg">
-          <a id="Digital" class="btn pull-right btn-outline-darkblue m-l-5 m-b-0 br-20" onclick="Digital()">Calendar</a>
+          <!-- <a id="Digital" class="btn pull-right btn-outline-darkblue m-l-5 m-b-0 br-20" onclick="Digital()">Calendar</a> -->
           <a id="NonDigital" class="btn pull-right btn-darkblue m-b-0 br-20" onclick="NonDigital()">Data</a>
       </div>
       </div>
@@ -202,7 +202,7 @@
                   <div class="col-md-12 pull-left">
                     <div class="pull-left">
                        <span class="text-white small pt-2 ps-1">Total Location</span>
-                      <h6 class="text-white">693</h6>
+                      <h6 class="text-white">7</h6>
                     </div>
                     <div class="pull-right">
                       <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -220,7 +220,7 @@
                   <div class="col-md-12 pull-left">
                     <div class="pull-left">
                        <span class="text-black small pt-2 ps-1">Total Bills</span>
-                      <h6 class="text-black">175</h6>
+                      <h6 class="text-black">7</h6>
                     </div>
                     <div class="pull-right">
                       <div class="card-icon rounded-radius d-flex align-items-center justify-content-center bg-orange">
@@ -298,7 +298,7 @@
                       new ApexCharts(document.querySelector("#reportsChart"), {
                         series: [{
                           name: 'This Year',
-                          data: [186, 228, 5096, 4250, 697],
+                          data: [99094, 13546.99],
                         }],
                         chart: {
                           height: 350,
@@ -329,7 +329,7 @@
                         },
                         xaxis: {
                           type: 'category', // Change from 'string' to 'category'
-                          categories: ["Feb", "Mar", "May", "June", "July"],
+                          categories: ["Jan", "Feb", "Mar", "Apr", "May"],
                           title: {
                             text: 'Month'
                           }
@@ -398,19 +398,19 @@
                           },
                           data: [
                             {
-                              value: 735,
+                              value: 0,
                               name: 'Over Due Amount'
                             },
                             {
-                              value: 580,
+                              value: 0,
                               name: 'Penalty'
                             },
                             {
-                              value: 484,
+                              value: 0,
                               name: 'Transection Amount'
                             },
                             {
-                              value: 436946,
+                              value: 112641.39,
                               name: 'Total Amount'
                             }
                           ]
@@ -530,7 +530,8 @@
                         },
                         yAxis: {
                           type: 'category',
-                          data: ['Ahmedabad', 'Junagadh', 'Guna', 'Indore', 'Nashik', 'Pune'],
+                          data: ['Akurdi','Guna','Junagadh','Vishakapatnam','Nashik','Indore','Kolkata'],
+                          
                           name: 'Location', // Added y-axis label
                           nameTextStyle: {
                             fontWeight: 'bold',
@@ -540,7 +541,7 @@
                         series: [{
                           name: 'kWh',
                           type: 'bar',
-                          data: [2635, 3416, 3553, 3813, 4250, 5096]
+                          data: [138,291,825,986,1572,1995.2,3399]
                         }
                         // {
                         //   name: '2012',
