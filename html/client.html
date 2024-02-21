@@ -287,7 +287,7 @@
                     <th>Biller Name</th>
                     <th>Service provider</th>
                     <th>Location</th>
-                    <th>Amount</th>
+                    <!-- <th>Amount</th> -->
                     <th>status</th>
                   </tr>
                 </thead>
@@ -393,7 +393,6 @@
             <td>${item.BillerName !== null ? item.BillerName : '-'}</td>
             <td>${item.service_provider !== null ? item.service_provider: '-'}</td>
             <td>${item.Location !== null ? item.Location : '-'}</td>
-            <td>${item.Amount !== null ? item.Amount : '-'}</td>
             <td>${item.BillStatus !== 0 ? 'Paid' : 'Unpaid'}</td>
        
       `;
